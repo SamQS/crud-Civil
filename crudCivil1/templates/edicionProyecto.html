@@ -1,0 +1,116 @@
+{% extends "./base.html"%}
+
+{% block title%} Gestion de Proyectos{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h2>Edicion de Proyecto</h2>
+            <form action="/editarProyecto/" method="POST" id="myForm">{% csrf_token %}
+                <div class="row">
+                    <div class="form-group col">
+                        <input type="text" id="txtcod" name="txtcod" value="{{registroProy.codigo}}"  class="form-control" 
+                        placeholder="Codigo" readonly required><br>
+                    </div>
+                    <div class="form-group col">
+                        <input type="text" id="txtproyecto" name="txtproyecto" value="{{registroProy.proyecto}}"  class="form-control" 
+                        placeholder="Proyecto" required><br>
+                    </div>
+                    <div class="form-group col">
+                        <input type="text" id="txtdireccion" name="txtdireccion" value="{{registroProy.direccion}}" class="form-control" 
+                        placeholder="Direccion" required><br>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <input type="text" id="txttipoproyecto" name="txttipoproyecto" value="{{registroProy.tipoProyecto}}" class="form-control" 
+                        placeholder="Tipo de Proyecto" rows="2" required></textarea><br>
+                    </div>
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <input type="text" id="txtprojectmanager" name="txtprojectmanager" value="{{registroProy.projectManager}}" class="form-control" 
+                        placeholder="Project Manager" required><br>
+                    </div>
+
+                    <div class="form-group col">
+                        <input type="number" id="txtprioridad" name="txtprioridad" value="{{registroProy.prioridad}}" class="form-control" 
+                        placeholder="Prioridad" required><br>
+                    </div>
+                    <div class="form-group col">
+                        <input type="text" id="txtnuevoproyecto" name="txtnuevoproyecto"  value="{{registroProy.nuevoProyecto}}" class="form-control" 
+                        placeholder="Nuevo Proyecto" required><br>
+
+                    </div>
+                    
+                    <div class="form-group col">
+                        <input type="text" id="txtpropuesta" name="txtpropuesta" value="{{registroProy.propuesta}}" class="form-control" 
+                        placeholder="Propuesta" required><br>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col">
+                        <input type="number" id="txtdias" name="txtdias" value="{{registroProy.cantidadDias}}" class="form-control" 
+                        placeholder="Cantidad de Dias" required><br>
+                    </div>
+                    
+                     <div class="form-group col">
+                        <input type="text" id="txtenvioPropuesta" name="txtenvioPropuesta" value="{{registroProy.envioPropCliente}}" class="form-control" 
+                        placeholder="Envio Propuesta al Cliente" required><br>
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <input type="text" id="txtclienteAprobado" name="txtclienteAprobado" value="{{registroProy.clienteAprobado}}" class="form-control" 
+                        placeholder="Cliente Aprobado" required><br>
+                    </div>
+
+                    <div class="form-group col">
+                        <input type="text" id="txtproyectoExistente" name="txtproyectoExistente" value="{{registroProy.proyectoExistente}}" class="form-control" 
+                        placeholder="Proyecto Existente" required><br>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <input type="text" id="txttipoServicio" name="txttipoServicio" value="{{registroProy.tipoServicio}}" class="form-control" 
+                        placeholder="Tipo Servicio" required><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col">
+                        <input type="text" id="txtplanosCliente" name="txtplanosCliente"  value="{{registroProy.planosCadCliente}}" class="form-control" 
+                        placeholder="Planos y Cad del Cliente" required><br>
+                    </div>
+
+                    <div class="form-group col">
+                        <input type="text" id="txtplanosdibus" name="txtplanosdibus" value="{{registroProy.planosDibus}}" class="form-control" 
+                        placeholder="Planos Dibus" required><br>
+                    </div>
+
+                    <div class="form-group col">
+                        <input type="text" id="txtcorrecciones" name="txtcorrecciones" value="{{registroProy.correciones}}" class="form-control" 
+                        placeholder="Correcciones" required><br>
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        <textarea type="text" id="txtobservaciones" name="txtobservaciones" value="{{registroProy.obervaciones}}" class="form-control" 
+                        placeholder="Observaciones" rows="2" required></textarea><br>
+                    </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <input type="date" id="txtfecha" name="txtfecha" value="{{registroProy.fechaEntrega}}" class="form-control" 
+                        placeholder="Fecha de Entrega" required><br>
+                    </div>
+
+                    <div class="form-group col">
+                        <input type="text" id="txtpc" name="txtpc" value="{{registroProy.pc}}" class="form-control" 
+                        placeholder="PC" required><br>
+                    </div>
+                </div>
+                
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-lg active" role="button" type="submit">Enviar</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

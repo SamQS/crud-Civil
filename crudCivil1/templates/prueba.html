@@ -1,0 +1,9 @@
+<tr>
+    <td>{{ empleado.nombre }}</td>
+    <!-- Otros campos -->
+    <td>
+        <form action="{% url 'eliminar_empleado' empleado.id %}" method="post">
+
+            <button type="submit">Eliminar</button>
+        </form>
+    </td>

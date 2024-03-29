@@ -1,0 +1,217 @@
+{% extends "./base.html"%}
+
+
+
+{% block title%} Gestion de Proyectos{% endblock %}
+
+{% block body %}
+
+
+
+
+
+<div class="container">
+<div class = 'row'>
+    <div >
+        <button class="toggle-btn" onclick="toggleForm()">Agregar Nuevo Registro</button>
+            <div >
+                    <form action="/registrarProyecto/" method="POST" id="myForm" class="hidden">{% csrf_token %}
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <input type="text" id="txtproyecto"  name="txtproyecto"  class="form-control" 
+                                placeholder="Proyecto" required><br>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <input type="text" id="txtdireccion"  name="txtdireccion" class="form-control" 
+                                placeholder="Direccion" required><br>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <textarea type="text" id="txttipoproyecto"  name="txttipoproyecto" class="form-control" 
+                                placeholder="Tipo de Proyecto" rows="2" required></textarea><br>
+                            </div>
+                        <div class="row">
+                            <div class="form-group col-sm-5">
+                                <input type="text" id="txtprojectmanager" name="txtprojectmanager" class="form-control" 
+                                placeholder="Project Manager" required><br>
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="number" id="txtprioridad" name="txtprioridad" class="form-control" 
+                                placeholder="Prioridad" required><br>
+                            </div>
+                            <div class="form-group col">
+                                <input type="text" id="txtnuevoproyecto" name="txtnuevoproyecto" class="form-control" 
+                                placeholder="Nuevo Proyecto" required><br>
+
+                            </div>
+                            
+                            <div class="form-group col">
+                                <input type="text" id="txtpropuesta" name="txtpropuesta" class="form-control" 
+                                placeholder="Propuesta" required><br>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="number" id="txtdias" name="txtdias" class="form-control" 
+                                placeholder="Cantidad de Dias" required><br>
+                            </div>
+                            
+                             <div class="form-group col">
+                                <input type="text" id="txtenvioPropuesta" name="txtenvioPropuesta" class="form-control" 
+                                placeholder="Envio Propuesta al Cliente" required><br>
+                            </div>
+
+                            <div class="form-group col-sm-3">
+                                <input type="text" id="txtclienteAprobado" name="txtclienteAprobado" class="form-control" 
+                                placeholder="Cliente Aprobado" required><br>
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="text" id="txtproyectoExistente" name="txtproyectoExistente" class="form-control" 
+                                placeholder="Proyecto Existente" required><br>
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                <input type="text" id="txttipoServicio" name="txttipoServicio" class="form-control" 
+                                placeholder="Tipo Servicio" required><br>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="text" id="txtplanosCliente" name="txtplanosCliente" class="form-control" 
+                                placeholder="Planos y Cad del Cliente" required><br>
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="text" id="txtplanosdibus" name="txtplanosdibus" class="form-control" 
+                                placeholder="Planos Dibus" required><br>
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="text" id="txtcorrecciones" name="txtcorrecciones" class="form-control" 
+                                placeholder="Corregiones" required><br>
+                            </div>
+                        </div>
+
+                            <div class="form-group">
+                                <textarea type="text" id="txtobservaciones" name="txtobservaciones" class="form-control" 
+                                placeholder="Observaciones" rows="2" required></textarea><br>
+                            </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="date" id="txtfecha" name="txtfecha" class="form-control" 
+                                placeholder="Fecha de Entrega" required><br>
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="text" id="txtpc" name="txtpc" class="form-control" 
+                                placeholder="PC" required><br>
+                            </div>
+                        </div>
+                        
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-lg active" role="button" type="submit">GUARDAR</button>
+                            </div>
+                    </form>
+                    
+                
+            </div>
+            
+            
+    </div>
+
+</div>
+</div>
+
+<div class="container2">
+
+
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
+  <div class="input-group">
+    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="submit">
+        <i class="fas fa-search fa-sm">Buscar</i>
+      </button>
+    </div>
+  </div>
+</form>
+</div>
+<br>
+<div class = 'row'>
+    <div>
+            <table class = 'table table-striped table-lg'>
+                <thead>
+                    <tr>
+                        <th >Proyecto</th>
+                        <th >Direccion</th>
+                        <th >Tipo de Proyecto</th>
+                        <th >Project Manager</th>
+                        <th >Prioridad</th>
+                        <th >Proyecto Nuevo</th>
+                        <th >Propuesta</th>
+                        <th >Cantidad de Dias</th>
+                        <th >Enviar Propuesta Cliente</th>
+                        <th >Cliente Aprobado</th>
+                        <th >Proyecto Existente</th>
+                        <th >Tipo de Servicio</th>
+                        <th >Plano y CAD de Client.</th>
+                        <th >Planos Dibus</th>
+                        <th >Corecciones</th>
+                        <th >Obervaciones</th>
+                        <th >Fecha Entrega</th>
+                        <th >PC</th>
+                        <th colspan="3" data-column="opciones">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in proyectos %}
+                    <tr>
+                        
+                        <td>{{p.proyecto}}</td>
+                        <td>{{p.direccion}}</td>
+                        <td >{{p.tipoProyecto}}</td>
+                        <td>{{p.projectManager}}</td>
+                        <td>{{p.prioridad}}</td>
+                        <td>{{p.nuevoProyecto}}</td>
+                        <td>{{p.propuesta}}</td>
+                        <td>{{p.cantidadDias}}</td>
+                        <td>{{p.envioPropCliente}}</td>
+                        <td>{{p.clienteAprobado}}</td>
+                        <td>{{p.proyectoExistente}}</td>
+                        <td>{{p.tipoServicio}}</td>
+                        <td>{{p.planosCadCliente}}</td>
+                        <td>{{p.planosDibus}}</td>
+                        <td>{{p.correciones}}</td>
+                        <td>{{p.obervaciones}}</td>
+                        <td>{{p.fechaEntrega}}</td>
+                        <td>{{p.pc}}</td>
+                        <td><a href="#" class="btn btn-warning" disabled="true">Archivar</a></td>
+                        <td><a href="edicionProyecto/{{p.codigo}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="eliminarProyecto/{{p.codigo}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+
+                    {% endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('input[name="buscar"]').on('keyup', function() {
+            var valor = $(this).val().toLowerCase();
+            $('table tbody tr').filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(valor) > -1)
+            });
+        });
+    });
+</script>
