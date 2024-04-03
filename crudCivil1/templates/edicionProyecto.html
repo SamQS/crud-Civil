@@ -12,9 +12,10 @@
                         <input type="text" id="txtcod" name="txtcod" value="{{registroProy.codigo}}"  class="form-control" 
                         placeholder="Codigo" readonly required><br>
                     </div>
-                    <div class="form-group col">
-                        <input type="text" id="txtproyecto" name="txtproyecto" value="{{registroProy.proyecto}}"  class="form-control" 
-                        placeholder="Proyecto" required><br>
+                    <div class="form-group">
+                        <textarea type="text" id="txtproyecto" name="txtproyecto" value="{{registroProy.proyecto}}"  class="form-control" 
+                        placeholder="Proyecto" rows="2" required>{{registroProy.proyecto}}</textarea><br>
+
                     </div>
                     <div class="form-group col">
                         <input type="text" id="txtdireccion" name="txtdireccion" value="{{registroProy.direccion}}" class="form-control" 
@@ -93,11 +94,11 @@
 
                     <div class="form-group">
                         <textarea type="text" id="txtobservaciones" name="txtobservaciones" value="{{registroProy.obervaciones}}" class="form-control" 
-                        placeholder="Observaciones" rows="2" required></textarea><br>
+                        placeholder="Observaciones" rows="2" required>{{registroProy.obervaciones}}</textarea><br>
                     </div>
                 <div class="row">
                     <div class="form-group col">
-                        <input type="date" id="txtfecha" name="txtfecha" value="{{registroProy.fechaEntrega}}" class="form-control" 
+                        <input type="date" id="txtfecha" name="txtfecha" value="{{registroProy.fechaEntrega|date:'Y-m-d'}}" class="form-control" 
                         placeholder="Fecha de Entrega" required><br>
                     </div>
 
