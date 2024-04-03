@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import pyodbc 
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -84,10 +84,16 @@ WSGI_APPLICATION = 'crudCivil.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'crudCivil.db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',                      
+        'USER': 'postgres',
+        'PASSWORD': 'adminsam123',
+        'HOST': 'database-2.cy6w7v27cfre.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

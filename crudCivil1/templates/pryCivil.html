@@ -3,6 +3,7 @@
 {% block body %}
 
 <div class="container">
+<div class="container1">
 <div class = 'row'>
     <div >
         <button class="toggle-btn" onclick="toggleForm()">Agregar Nuevo Registro</button>
@@ -117,21 +118,26 @@
 
 </div>
 </div>
-
-<div class="container2">
-
-
-<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
-  <div class="input-group">
-    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
-    <div class="input-group-append">
-      <button class="btn btn-primary" type="submit">
-        <i class="fas fa-search fa-sm">Buscar</i>
-      </button>
-    </div>
-  </div>
-</form>
 </div>
+
+<hr style="width:180%; text-align:left; margin-left:0; background-color: rgb(255, 0, 0);">
+
+  <div class="container">
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-auto my-auto my-md-auto mw-auto navbar-search" method="GET">
+      <fieldset class="fields">
+        <legend>Panel de Busqueda</legend>
+        <div class="inner-form">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-50 small" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
+            <div class="input">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"> Buscar </i>
+                </button>
+            </div>
+      </fieldset>
+    </form>
+  </div>
+
 <br>
 
 <div class = 'row'>
@@ -192,6 +198,7 @@
             </table>
         </div>
     </div>
+
 
 </div>
 </div>

@@ -1,12 +1,12 @@
 body {
     background-color: aliceblue;
-    width: 90%;
+
 
 }
 
 
-.container {
-text-align: left;
+.container1 {
+    text-align: left;
     position: relative;
     margin-right: 1700px;
     margin-top: 10px;
@@ -14,7 +14,6 @@ text-align: left;
 }
 .container2 {
     text-align: left;
-    position: relative;
     margin-right: 1520px;
     margin-top: 10px;
     top: -50;
@@ -50,14 +49,25 @@ text-align: left;
   }
 
 
- .table {
+.table {
     width: 180%;
     border-collapse: collapse; /* Combina los bordes de las celdas */
 }
 
 /* Estilo para las celdas */
 .table th, .table td {
-    padding: 6px; /* Ajusta el espacio interior de las celdas */
-    border: -1px solid #007bff; /* Borde de las celdas */
-    text-align: left; /* Alineación del texto */
+    padding: 8px; /* Ajusta el espacio interior de las celdas */
+    border: 1px solid #007bff; /* Borde de las celdas */
+    text-align: center; /* Alineación del texto */
 }
+
+.fields{
+    padding:30px; 
+    border:9px solid #000000;
+    background: #fafcff;
+}
+hr{
+    height: 0%;
+    background-color: rgb(255, 0, 0);
+}
+
